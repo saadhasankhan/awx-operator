@@ -169,12 +169,12 @@ $ kubectl logs -f deployments/awx-operator-controller-manager -c manager
 After a few seconds, you should see the operator begin to create new resources:
 
 ```
-$ kubectl get pods -l "app.kubernetes.io/managed-by=awx-operator"
+$ kubectl get pods -l "awx/managed-by=awx-operator"
 NAME                        READY   STATUS    RESTARTS   AGE
 awx-demo-77d96f88d5-pnhr8   4/4     Running   0          3m24s
 awx-demo-postgres-0         1/1     Running   0          3m34s
 
-$ kubectl get svc -l "app.kubernetes.io/managed-by=awx-operator"
+$ kubectl get svc -l "awx/managed-by=awx-operator"
 NAME                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
 awx-demo-postgres   ClusterIP   None           <none>        5432/TCP       4m4s
 awx-demo-service    NodePort    10.109.40.38   <none>        80:31006/TCP   3m56s

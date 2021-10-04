@@ -6,9 +6,9 @@
     kind: Pod
     namespace: '{{ ansible_operator_meta.namespace }}'
     label_selectors:
-      - "app.kubernetes.io/name={{ ansible_operator_meta.name }}"
-      - "app.kubernetes.io/managed-by={{ deployment_type }}-operator"
-      - "app.kubernetes.io/component={{ deployment_type }}"
+      - "awx/name={{ ansible_operator_meta.name }}"
+      - "awx/managed-by={{ deployment_type }}-operator"
+      - "awx/component={{ deployment_type }}"
     field_selectors:
       - status.phase=Running
   register: tower_pods
@@ -57,9 +57,9 @@
         kind: Pod
         namespace: '{{ ansible_operator_meta.namespace }}'
         label_selectors:
-          - "app.kubernetes.io/name={{ ansible_operator_meta.name }}"
-          - "app.kubernetes.io/managed-by={{ deployment_type }}-operator"
-          - "app.kubernetes.io/component={{ deployment_type }}"
+          - "awx/name={{ ansible_operator_meta.name }}"
+          - "awx/managed-by={{ deployment_type }}-operator"
+          - "awx/component={{ deployment_type }}"
         field_selectors:
           - status.phase=Running
       register: _new_pod

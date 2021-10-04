@@ -6,20 +6,20 @@ metadata:
   name: '{{ ansible_operator_meta.name }}-postgres'
   namespace: '{{ ansible_operator_meta.namespace }}'
   labels:
-    app.kubernetes.io/name: 'postgres'
-    app.kubernetes.io/instance: 'postgres-{{ ansible_operator_meta.name }}'
-    app.kubernetes.io/component: 'database'
-    app.kubernetes.io/part-of: '{{ ansible_operator_meta.name }}'
-    app.kubernetes.io/managed-by: '{{ deployment_type }}-operator'
-    app.kubernetes.io/operator-version: '{{ lookup("env", "OPERATOR_VERSION") }}'
-    app.kubernetes.io/component: database
+    awx/name: 'postgres'
+    awx/instance: 'postgres-{{ ansible_operator_meta.name }}'
+    awx/component: 'database'
+    awx/part-of: '{{ ansible_operator_meta.name }}'
+    awx/managed-by: '{{ deployment_type }}-operator'
+    awx/operator-version: '{{ lookup("env", "OPERATOR_VERSION") }}'
+    awx/component: database
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: 'postgres'
-      app.kubernetes.io/instance: 'postgres-{{ ansible_operator_meta.name }}'
-      app.kubernetes.io/component: 'database'
-      app.kubernetes.io/managed-by: '{{ deployment_type }}-operator'
+      awx/name: 'postgres'
+      awx/instance: 'postgres-{{ ansible_operator_meta.name }}'
+      awx/component: 'database'
+      awx/managed-by: '{{ deployment_type }}-operator'
   serviceName: '{{ ansible_operator_meta.name }}'
   replicas: 1
   updateStrategy:
@@ -27,11 +27,11 @@ spec:
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: 'postgres'
-        app.kubernetes.io/instance: 'postgres-{{ ansible_operator_meta.name }}'
-        app.kubernetes.io/component: 'database'
-        app.kubernetes.io/part-of: '{{ ansible_operator_meta.name }}'
-        app.kubernetes.io/managed-by: '{{ deployment_type }}-operator' 
+        awx/name: 'postgres'
+        awx/instance: 'postgres-{{ ansible_operator_meta.name }}'
+        awx/component: 'database'
+        awx/part-of: '{{ ansible_operator_meta.name }}'
+        awx/managed-by: '{{ deployment_type }}-operator' 
     spec:
 {% if image_pull_secret %}
       imagePullSecrets:
@@ -116,20 +116,20 @@ metadata:
   name: '{{ ansible_operator_meta.name }}-postgres'
   namespace: '{{ ansible_operator_meta.namespace }}'
   labels:
-    app.kubernetes.io/name: 'postgres'
-    app.kubernetes.io/instance: 'postgres-{{ ansible_operator_meta.name }}'
-    app.kubernetes.io/component: 'database'
-    app.kubernetes.io/part-of: '{{ ansible_operator_meta.name }}'
-    app.kubernetes.io/managed-by: '{{ deployment_type }}-operator'
-    app.kubernetes.io/operator-version: '{{ lookup("env", "OPERATOR_VERSION") }}'
-    app.kubernetes.io/component: database
+    awx/name: 'postgres'
+    awx/instance: 'postgres-{{ ansible_operator_meta.name }}'
+    awx/component: 'database'
+    awx/part-of: '{{ ansible_operator_meta.name }}'
+    awx/managed-by: '{{ deployment_type }}-operator'
+    awx/operator-version: '{{ lookup("env", "OPERATOR_VERSION") }}'
+    awx/component: database
 spec:
   ports:
     - port: 5432
   clusterIP: None
   selector:
-    app.kubernetes.io/name: 'postgres'
-    app.kubernetes.io/instance: 'postgres-{{ ansible_operator_meta.name }}'
-    app.kubernetes.io/component: 'database'
-    app.kubernetes.io/part-of: '{{ ansible_operator_meta.name }}'
-    app.kubernetes.io/managed-by: '{{ deployment_type }}-operator'
+    awx/name: 'postgres'
+    awx/instance: 'postgres-{{ ansible_operator_meta.name }}'
+    awx/component: 'database'
+    awx/part-of: '{{ ansible_operator_meta.name }}'
+    awx/managed-by: '{{ deployment_type }}-operator'
